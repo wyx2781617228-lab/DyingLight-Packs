@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "game": { "key": "dl1", "name": "消逝的光芒 1", "steamAppId": "239140" },
+  "trainer": {
+    "version": "1.0.8",
+    "tag": "v1.0.8",
+    "sourceRepo": "https://github.com/wyx2781617228-lab/DyingLight-Trainer",
+    "publishedFrom": "89d3998175a073ab7090c263f66f613f5d28671b",
+    "validatedAgainst": {
+      "path": "gamedll_x64_rwdi.dll",
+      "bytes": 31789632,
+      "sha256": "a37265e56a77924cf23211c1c3ab27cdcbc5db399ae4329bcdf3900962b60073",
+      "channel": "tdgame-local",
+      "note": "偏移与引脚按这一份 gamedll 校验；其他发行渠道的同版本构建需另行核对。"
+    }
+  },
+  "components": [
+    {
+      "id": "trainer-dll",
+      "role": "native-proxy",
+      "installPath": "dsound.dll",
+      "bytes": 2836480,
+      "sha256": "2c1e5334b03cec1311e4caf6f37d026721283b03d68a17795a35f0b58208ea06",
+      "asset": "dsound-1.0.8.dll",
+      "unpack": false,
+      "changesWith": "every trainer release"
+    },
+    {
+      "id": "trainer-resources",
+      "role": "assets",
+      "installPath": "DLTrainer",
+      "asset": "DLTrainer-resources-127.zip",
+      "bytes": 9619988,
+      "sha256": "41d8fb3965ce97e383e8545c69c506e368fa604a246119b850972632121ab53b",
+      "unpack": true,
+      "fileCount": 2177,
+      "uncompressedBytes": 9473988,
+      "changesWith": "rarely",
+      "criticalFile": {
+        "path": "DLTrainer/weapon_journal_exit_helper.exe",
+        "bytes": 286720,
+        "sha256": "dca1e8ebb13142338df1a26543dd4c0f9097d3243668660806d8dec89b35f65a"
+      },
+      "source": "binary-only; no source exists for the helper executable or the icon set (DL-Trainer-Portable-126/127 lineage)"
+    }
+  ],
+  "install": {
+    "requiresGameClosed": true,
+    "verifyAfterInstall": true,
+    "restore": "manual",
+    "keepsUnknownFilesInPlace": true
+  },
+  "incremental": {
+    "unit": "component",
+    "rule": "fetch a component only when its recorded sha256 differs from the local copy; identical means zero bytes downloaded"
+  },
+  "distribution": {
+    "mode": "public-github-release",
+    "indexUrl": "https://raw.githubusercontent.com/wyx2781617228-lab/DyingLight-Packs/main/pack.json",
+    "releaseUrl": "https://github.com/wyx2781617228-lab/DyingLight-Packs/releases/tag/v1.0.8",
+    "baseUrl": "https://github.com/wyx2781617228-lab/DyingLight-Packs/releases/download/v1.0.8/"
+  }
+}
